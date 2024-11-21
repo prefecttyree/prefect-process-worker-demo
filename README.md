@@ -42,3 +42,9 @@ Make sure these names match exactly as shown in the code, or update the names in
 
 The flow will deploy to your process worker and execute with full observability and error handling.
 
+## Reference Links
+- [Prefect Documentation](https://docs.prefect.io/)
+- [Deploying Flows via Python](https://docs.prefect.io/v3/deploy/infrastructure-concepts/deploy-via-python)
+- [Prefect Flow Retries](https://docs.prefect.io/latest/concepts/flows/#flow-retries)
+- [Task Retries](https://docs.prefect.io/latest/concepts/tasks/#task-retries)
+
