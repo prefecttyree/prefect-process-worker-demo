@@ -37,12 +37,12 @@ def data_processing_flow(input_value: int = 10):
 if __name__ == "__main__":
     # Run the flow directly
     result = data_processing_flow.from_source(
-        source="main.py",
-        entrypoint="data_processing_flow"
+        source="https://github.com/prefecttyree/prefect-process-worker-demo.git",
+        entrypoint="main.py:data_processing_flow"
     ).deploy( # Create a deployment
         name="data-processor",
-        work_pool="local-processor",
-        tags=["demo", "processing"]
+        work_pool_name="my-process-worker",
+        tags=["local"]
     )
     print(f"Flow result: {result}")
     

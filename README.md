@@ -1,12 +1,44 @@
 # Prefect Process Worker Demo
 
-This demo shows a basic Prefect flow with retries and error handling.
+This demo shows how to deploy a Prefect flow to a process worker and handle failures gracefully. The flow processes input data with retries and validation.
 
-## Features
-- Task retries with delay
-- Flow-level error handling
-- Random failure simulation
-- Result validation
+## What's Happening
+The main flow `data_processing_flow` contains two tasks:
+- `process_data`: Simulates data processing with a 20% chance of random failure
+- `validate_result`: Validates the processed output
 
-## Usage
-1. Install requirements: 
+The flow includes:
+- Task-level retries (2 attempts with 30s delay)
+- Flow-level retry (1 attempt with 60s delay) 
+- Random failure simulation to demonstrate error handling
+- Result validation to ensure data quality
+
+## Requirements
+- Python 3.7+
+- Prefect 2.0+
+- Git repository with name matching "prefect-process-worker-demo" for deployment source
+- Work pool named "my-process-worker"
+- Deployment named "data-processor"
+
+Make sure these names match exactly as shown in the code, or update the names in main.py to match your preferences.
+
+## Getting Started
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Create a process work pool in Prefect:
+   ```bash
+   prefect work-pool create my-process-worker --type process
+   ```
+3. Start a worker:
+   ```bash
+   prefect worker start --pool my-process-worker
+   ```
+4. Run the flow:
+   ```bash
+   python main.py
+   ```
+
+The flow will deploy to your process worker and execute with full observability and error handling.
+

@@ -1,2 +1,1 @@
-prefect>=2.14.0
-prefect-github>=0.1.5
+prefect
