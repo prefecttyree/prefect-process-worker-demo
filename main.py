@@ -30,7 +30,7 @@ def data_processing_flow(input_value: int = 10):
     
     # Validate the result
     is_valid = validate_result(processed_result)
-    
+    print(f"Flow result: {processed_result}")
     return {"result": processed_result, "is_valid": is_valid}
 
 
@@ -44,5 +44,5 @@ if __name__ == "__main__":
         work_pool_name="my-process-worker",
         tags=["local"]
     )
-    print(f"Flow result: {result}")
+    
     

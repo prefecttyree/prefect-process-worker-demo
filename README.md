@@ -39,6 +39,10 @@ Make sure these names match exactly as shown in the code, or update the names in
    ```bash
    python main.py
    ```
+5. run the deployment:
+   ```bash
+   prefect deployment run 'data_processing_flow/data-processor'
+   ```
 
 The flow will deploy to your process worker and execute with full observability and error handling.
 
