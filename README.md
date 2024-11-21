@@ -35,10 +35,11 @@ Make sure these names match exactly as shown in the code, or update the names in
    ```bash
    prefect worker start --pool my-process-worker
    ```
-4. Run the flow:
+4. Run the flow to create deployment:
    ```bash
    python main.py
    ```
+   This step creates a deployment in Prefect using the flow code from the Git repository. The deployment is named "data-processor" and configured to run on the "my-process-worker" work pool. This deployment configuration allows Prefect to execute the flow when triggered.
 5. run the deployment:
    ```bash
    prefect deployment run 'data_processing_flow/data-processor'
