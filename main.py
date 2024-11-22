@@ -35,14 +35,23 @@ def data_processing_flow(input_value: int = 10):
 
 
 if __name__ == "__main__":
-    # Run the flow directly
+    
+    # Create a deployment for the flow from a Git repository source
+    # .from_source() specifies where Prefect should get the flow code from
     result = data_processing_flow.from_source(
+        # The Git repository containing the flow code
         source="https://github.com/prefecttyree/prefect-process-worker-demo.git",
+        # The path to the flow function within the repository
+        # Format is: file_path:function_name
         entrypoint="main.py:data_processing_flow"
-    ).deploy( # Create a deployment
+    ).deploy(
+        # Configure the deployment settings
+        # The name that will identify this deployment in the Prefect UI
         name="data-processor",
+        # The work pool that will execute this deployment
+        # Must match an existing work pool name in your Prefect server
         work_pool_name="my-process-worker",
+        # Tags help organize and filter deployments
+        # 'local' tag indicates this is for local development
         tags=["local"]
     )
-    
-    
