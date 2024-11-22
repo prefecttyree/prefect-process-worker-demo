@@ -38,7 +38,7 @@ if __name__ == "__main__":
     
     # Create a deployment for the flow from a Git repository source
     # .from_source() specifies where Prefect should get the flow code from
-    result = data_processing_flow.from_source(
+    data_processing_flow.from_source(
         # The Git repository containing the flow code
         source="https://github.com/prefecttyree/prefect-process-worker-demo.git",
         # The path to the flow function within the repository
